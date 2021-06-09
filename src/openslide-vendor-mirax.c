@@ -511,7 +511,7 @@ static bool read_nonhier_record(FILE *f,
   }
 
   // read pagesize == 1
-  if (read_le_int32_from_file(f) != 1) {
+  if (read_le_int32_from_file(f) < 1) {
     g_set_error(err, OPENSLIDE_ERROR, OPENSLIDE_ERROR_FAILED,
                 "Expected 1 value");
     return false;
